@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+    <body>
+        <script>
+            playerSelection = "rock"
+            computerSelection = computerPlay()
+            function computerPlay() {
+                result = Math.floor(Math.random() * 3)
+                switch(result) {
+                    case 0:
+                    text = "rock";
+                    break;
+                    case 1:
+                    text = "paper";
+                    break;
+                    case 2:
+                    text = "scissors";
+                    break;
+                }
+            }
+            function playRound(playerSelection, computerSelection) {
+                if (computerSelection == 0) {
+                return "Tie";
+                } else if (computerSelection == 2) {
+                return "You Win";
+                } else (computerSelection == 1)
+                return "You Lose";
+            }
+            console.log(playRound(playerSelection, result))
+            console.log(result)
+        </script>
+    </body>
+</html>
