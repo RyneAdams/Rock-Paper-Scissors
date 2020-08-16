@@ -1,74 +1,80 @@
 <!DOCTYPE html>
     <body>
         <script>        
-        //let playerSelection = "rock"
-        //let computerSelection = computerPlay()
-        //result = Math.floor(Math.random() * 3) 
-        let player1 = 0;
-        let player2 = 0;
-
-        function game1(choice1, choice2) {
-            if (choice1 == choice2) {
-            console.log("Tie!!")
-            }
-            else if (choice1 == "rock") {
-                if (choice2 == "paper") {
-                player1 ++; 
-                console.log("Player1 Wins")
-            } if (choice2 == "scissors") {
-                player1 ++;
-                console.log("Player1 Wins")
-            } 
-            } else if (choice1 =="scissors") {
-                if(choice2 == "rock") {
-                player2++;
-                console.log("Player2 Wins")
-                } if (choice2 == "paper") {
-                player1++;
-                console.log("Player1 Wins")
-                }
-            } else if (choice1 == "paper") {
-                if (choice2 == "rock") {
-                player2++;
-                console.log("Player2 Wins")
-                } if (choice2 == "scissors") {
-                player2++;
-                console.log("Player2 Wins")
-                }
+let completedRounds = 0;
+let machine = 0;
+let player = 0;  
+//let computer = "";
+//let result = Math.floor(Math.random() * 3);
+//let computerSelection = computerPlay()
+let computerSelection = computerPlay()
+        function playRound(computerSelection, choice2) {
             
+            if (computerSelection == choice2) {
+            alert("Tie!!")
             }
-                
-        } 
-
-game1("rock", "paper")
-game1("paper", "rock")
-
-               
-/*
-                function computerPlay() {     
-                    switch(result) {
-                        case 0:
-                        text = "rock";
-                        break;
-                        case 1:
-                        text = "paper";
-                        break;
-                        case 2:
-                        text = "scissors";
-                        break;
-                    }
+            else if (computerSelection == "rock") {
+                if (choice2 == "paper") {
+                player++; 
+                alert("You Win");
+              } if (choice2 == "scissors") {
+                machine++;
+                alert("Machine Wins");
+            } 
+            } else if (computerSelection == "scissors") {
+                if(choice2 == "rock") {
+                player++;
+                alert("You Win");
+                } if (choice2 == "paper") {
+                machine++;
+                alert("Machine Wins");
                 }
-                function playRound(playerSelection, computerSelection) {
-                    if (computerSelection == 0) {
-                        return "Tie";
-                    } else if (computerSelection == 2) {
-                        return "You Win";
-                    } else (computerSelection == 1)
-                        return "You Lose";
-                    }   
-                    console.log(player1)
-        console.log(playRound(playerSelection, computerSelection))
-        */    
-        </script>
+            } else if (computerSelection == "paper") {
+                if (choice2 == "rock") {
+                machine++;
+                alert("Machine Wins");
+                } if (choice2 == "scissors") {
+                player++;
+                alert("You Win");
+                }
+            }//console.log(computerSelection)
+           // console.log(choice2)
+        } 
+  function computerPlay() {
+            let choices = ["rock", "paper", "scissors"]
+            let index = Math.floor(Math.random() * choices.length);
+            return choices[index].toLowerCase();
+  }
+  function game() {
+      round = 0;
+      while (round < 5) {
+          choice2 = prompt("Enter Here");
+          computerSelection = computerPlay();
+          console.log(playRound(choice2,computerSelection));
+            round++;
+      }
+  }
+  
+ game()
+ 
+/*
+function game() {
+for (let i = 0; i < 3; i++) {
+  playRound(i);
+ let choice2 = prompt("Choose rock, paper or scissors");
+  if (choice2.toLowerCase() == "rock" || choice2.toLowerCase() == "paper" || choice2.toLowerCase() == "scissors") {
+      
+    completedRounds++;
+    playRound();
+    console.log(completedRounds) ;
+        
+    
+  } else alert("Invalid answer");
+} 
+} 
+game()
+console.log(computerSelection)
+*/
+</script>
     </body>
      </html>
